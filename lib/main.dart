@@ -34,9 +34,9 @@ class MyApp extends StatelessWidget {
       //   GlobalWidgetsLocalizations.delegate,
       //   GlobalCupertinoLocalizations.delegate,
       // ],
-      supportedLocales: const [
-        Locale('ar', 'EG'), // English, no country code
-      ],
+      // supportedLocales: const [
+      //   Locale('ar', 'EG'), // English, no country code
+      // ],
       onGenerateRoute: onGenerateAppRoute,
     );
   }

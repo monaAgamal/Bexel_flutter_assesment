@@ -8,7 +8,7 @@ Route onGenerateAppRoute(RouteSettings settings) {
     case home:
       return MaterialPageRoute(
         builder: (_) {
-          final String categoryName = settings!.arguments! as String;
+          final String categoryName = settings.arguments! as String;
           return HomePage(
             categoryName: categoryName,
           );
