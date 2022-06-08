@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:bexel_assesment/routes/routes_names.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class WelcomePage extends StatelessWidget {
   const WelcomePage({Key? key}) : super(key: key);
@@ -21,16 +22,16 @@ class _Body extends StatelessWidget {
         Container(
           child: Column(
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 80,
                 width: 80,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 80,
                 width: 80,
               ),
-              Text("Let's help  together\n in this pandemic!"),
-              SizedBox(height: 24),
+              const Text("Let's help  together\n in this pandemic!"),
+              const SizedBox(height: 24),
               Text(
                 "You can get medical and food service at your doorsteps and also anyone can donate some fund for covid patients.",
                 textAlign: TextAlign.center,
@@ -38,6 +39,12 @@ class _Body extends StatelessWidget {
               ),
             ],
           ),
+        ),
+        const Positioned(
+          bottom: 0,
+          left: 0,
+          right: 0,
+          child: CategorySection(),
         ),
       ],
     );
@@ -55,12 +62,13 @@ class CategorySection extends StatelessWidget {
       decoration: BoxDecoration(
         color: Theme.of(context).cardColor,
         borderRadius: const BorderRadius.only(
-          topLeft: Radius.circular(12),
-          topRight: Radius.circular(12),
+          topLeft: Radius.circular(24),
+          topRight: Radius.circular(24),
         ),
       ),
       child: Column(
         children: [
+          const SizedBox(height: 24),
           Center(
             child: Text(
               "Choose your category",
@@ -69,11 +77,12 @@ class CategorySection extends StatelessWidget {
                   ),
             ),
           ),
+          const SizedBox(height: 24),
           Row(
-            mainAxisAlignment: MainAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: const [
               CategoryItem(
-                imagPath: "Medical",
+                imagPath: "medicines",
                 categoryLabel: "medicines",
               ),
               CategoryItem(
@@ -111,7 +120,7 @@ class CategoryItem extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Image.asset('assets/svg/$imagPath.svg'),
+          SvgPicture.asset('assets/svg/$imagPath.svg'),
           const SizedBox(height: 8),
           Text(
             categoryLabel,

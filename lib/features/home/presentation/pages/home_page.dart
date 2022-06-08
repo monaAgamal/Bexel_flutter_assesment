@@ -27,10 +27,7 @@ class _Body extends StatelessWidget {
       mainAxisSize: MainAxisSize.max,
       children: [
         SizedBox(
-          height: MediaQuery
-              .of(context)
-              .size
-              .height * 0.35,
+          height: MediaQuery.of(context).size.height * 0.35,
           child: _PlanSelection(
             categoryName: categoryName,
           ),
@@ -52,42 +49,35 @@ class _PlanSelection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
-      builder: (context, constraints) =>
-          Stack(
-            children: [
-              Container(
-                height: constraints.maxHeight * 0.25,
-                decoration: BoxDecoration(
-                  color: Theme
-                      .of(context)
-                      .primaryColor,
-                  borderRadius: const BorderRadius.only(
-                    bottomLeft: Radius.circular(12),
-                    bottomRight: Radius.circular(12),
-                  ),
-                ),
+      builder: (context, constraints) => Stack(
+        children: [
+          Container(
+            height: constraints.maxHeight * 0.25,
+            decoration: BoxDecoration(
+              color: Theme.of(context).primaryColor,
+              borderRadius: const BorderRadius.only(
+                bottomLeft: Radius.circular(12),
+                bottomRight: Radius.circular(12),
               ),
-              _CustomAppBar(
-                categoryName: categoryName,
-              ),
-              Text(
-                "Select your plan and enjoy a warm lunch or dinner at your home.",
-                style: Theme
-                    .of(context)
-                    .textTheme
-                    .bodyText2
-                    ?.copyWith(
+            ),
+          ),
+          _CustomAppBar(
+            categoryName: categoryName,
+          ),
+          Text(
+            "Select your plan and enjoy a warm lunch or dinner at your home.",
+            style: Theme.of(context).textTheme.bodyText2?.copyWith(
                   fontWeight: FontWeight.w200,
                 ),
-              ),
-              Positioned(
-                left: 12,
-                right: 12,
-                top: constraints.maxHeight * 0.75,
-                child: const _PlansOptions(),
-              ),
-            ],
           ),
+          Positioned(
+            left: 12,
+            right: 12,
+            top: constraints.maxHeight * 0.75,
+            child: const _PlansOptions(),
+          ),
+        ],
+      ),
     );
   }
 }
@@ -103,9 +93,7 @@ class _PlansOptions extends StatelessWidget {
       mainAxisSize: MainAxisSize.max,
       children: [
         PlanOptionCardHolder(
-          cardBackgroundColor: Theme
-              .of(context)
-              .accentColor,
+          cardBackgroundColor: Theme.of(context).accentColor,
           planableQuantity: 1,
           planableUnit: "Meal",
           price: 12,
@@ -137,13 +125,9 @@ class _CustomAppBar extends StatelessWidget {
         const Icon(Icons.arrow_back_ios),
         Text(
           categoryName,
-          style: Theme
-              .of(context)
-              .textTheme
-              .bodyText2
-              ?.copyWith(
-            fontWeight: FontWeight.bold,
-          ),
+          style: Theme.of(context).textTheme.bodyText2?.copyWith(
+                fontWeight: FontWeight.bold,
+              ),
         ),
         const Expanded(
           child: SizedBox(),
@@ -193,16 +177,10 @@ class PlanOptionCardHolder extends StatelessWidget {
               ),
               Text(
                 '/a day',
-                style: Theme
-                    .of(context)
-                    .textTheme
-                    .bodyText2
-                    ?.copyWith(
-                  fontSize: 12,
-                  color: Theme
-                      .of(context)
-                      .primaryColor,
-                ),
+                style: Theme.of(context).textTheme.bodyText2?.copyWith(
+                      fontSize: 12,
+                      color: Theme.of(context).primaryColor,
+                    ),
               ),
             ],
           ),
@@ -217,15 +195,9 @@ class PlanOptionCardHolder extends StatelessWidget {
               child: Text(
                 "view Deta",
                 textAlign: TextAlign.center,
-                style: Theme
-                    .of(context)
-                    .textTheme
-                    .bodyText2
-                    ?.copyWith(
-                  color: Theme
-                      .of(context)
-                      .primaryColor,
-                ),
+                style: Theme.of(context).textTheme.bodyText2?.copyWith(
+                      color: Theme.of(context).primaryColor,
+                    ),
               ),
             ),
           )
@@ -236,18 +208,17 @@ class PlanOptionCardHolder extends StatelessWidget {
 }
 
 class FeaturesSection extends StatelessWidget {
-
   // SliverGridDelegate gridDelegate = SliverGridDelegate
 
   @override
   Widget build(BuildContext context) {
-    GridView.builder(
-      gridDelegate: gridDelegate,
-      itemBuilder: (_, index) =>
-          FeaturesItemHolder(
-            featureName: "Order your name",
-            featureAssetName:,
-          ),
+    return GridView.builder(
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2, crossAxisSpacing: 4.0, mainAxisSpacing: 4.0),
+      itemBuilder: (_, index) => const FeaturesItemHolder(
+        featureName: "Order your name",
+        featureAssetName: "online-shop",
+      ),
     );
   }
 }
@@ -279,16 +250,10 @@ class FeaturesItemHolder extends StatelessWidget {
             const SizedBox(height: 16),
             Text(
               featureName,
-              style: Theme
-                  .of(context)
-                  .textTheme
-                  .bodyText2
-                  ?.copyWith(
-                color: Theme
-                    .of(context)
-                    .primaryColor,
-                height: 1.5,
-              ),
+              style: Theme.of(context).textTheme.bodyText2?.copyWith(
+                    color: Theme.of(context).primaryColor,
+                    height: 1.5,
+                  ),
             ),
           ],
         ),

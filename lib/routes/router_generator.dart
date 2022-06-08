@@ -7,7 +7,12 @@ Route onGenerateAppRoute(RouteSettings settings) {
   switch (settings.name) {
     case home:
       return MaterialPageRoute(
-        builder: (_) => const HomePage(),
+        builder: (_) {
+          final String categoryName = settings!.arguments! as String;
+          return HomePage(
+            categoryName: categoryName,
+          );
+        },
       );
     default:
       return MaterialPageRoute(
