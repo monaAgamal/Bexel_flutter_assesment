@@ -231,7 +231,7 @@ class PlanOptionCardHolder extends StatelessWidget {
               Row(
                 children: [
                   Text(
-                    '$price',
+                    '\$$price',
                     style: Theme.of(context).textTheme.bodyText2?.copyWith(
                           fontSize: 22,
                           color: Theme.of(context).primaryColor,
