@@ -16,7 +16,10 @@ class CategoryItemBuilder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => Navigator.of(context).pushNamed(home),
+      onTap: () => Navigator.of(context).pushNamed(
+        home,
+        arguments: categoryLabel,
+      ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.center,
