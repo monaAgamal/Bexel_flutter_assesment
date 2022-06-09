@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class BottomNavBarHomePage extends StatefulWidget {
+  const BottomNavBarHomePage({Key? key}) : super(key: key);
+
   @override
   State<BottomNavBarHomePage> createState() => _BottomNavBarHomePageState();
 }
@@ -18,10 +20,6 @@ class _BottomNavBarHomePageState extends State<BottomNavBarHomePage> {
       ),
       Text(
         'Index 1: Business',
-        style: optionStyle,
-      ),
-      Text(
-        'Index 2: School',
         style: optionStyle,
       ),
     ];
@@ -42,10 +40,6 @@ class _BottomNavBarHomePageState extends State<BottomNavBarHomePage> {
           BottomNavigationBarItem(
             icon: Icon(Icons.business),
             label: 'Business',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.school),
-            label: 'School',
           ),
         ],
         currentIndex: _selectedIndex,

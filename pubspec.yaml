@@ -15,6 +15,7 @@ dependencies:
   equatable: ^2.0.3
   realm: ^0.3.1+beta
 
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
