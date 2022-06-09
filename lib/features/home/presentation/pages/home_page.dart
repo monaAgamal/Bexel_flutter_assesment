@@ -1,4 +1,5 @@
 import 'package:bexel_assesment/features/home/presentation/ui_models/category_model.dart';
+import 'package:bexel_assesment/routes/routes_names.dart';
 import 'package:flutter/material.dart';
 import 'package:bexel_assesment/core/app_theme/app_colors_palate.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -307,9 +308,14 @@ class FeaturesSection extends StatelessWidget {
         crossAxisSpacing: 42.0,
         mainAxisSpacing: 24.0,
       ),
-      itemBuilder: (_, index) => FeaturesItemHolder(
-        featureName: categories[index].categoryName,
-        featureAssetName: categories[index].categoryIcon,
+      itemBuilder: (_, index) => GestureDetector(
+        onTap: () {
+          Navigator.of(context).pushNamed(bottomNavBarhome);
+        },
+        child: FeaturesItemHolder(
+          featureName: categories[index].categoryName,
+          featureAssetName: categories[index].categoryIcon,
+        ),
       ),
     );
   }
