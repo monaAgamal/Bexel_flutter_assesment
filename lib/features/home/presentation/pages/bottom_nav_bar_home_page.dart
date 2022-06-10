@@ -1,9 +1,10 @@
 import 'package:bexel_assesment/di/injection_container.dart';
 import 'package:bexel_assesment/features/home/presentation/cubit/products_cubit.dart';
-import 'package:bexel_assesment/features/home/presentation/cubit/products_state.dart';
 import 'package:bexel_assesment/features/home/presentation/widgets/create_product.dart';
+import 'package:bexel_assesment/features/home/presentation/widgets/products_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'dart:developer';
 
 class BottomNavBarHomePage extends StatefulWidget {
   const BottomNavBarHomePage({Key? key}) : super(key: key);
@@ -14,11 +15,11 @@ class BottomNavBarHomePage extends StatefulWidget {
 
 class _BottomNavBarHomePageState extends State<BottomNavBarHomePage> {
   final cubit = getIt<ProductsCubit>();
+  int selectedIndex = 0;
 
   @override
   void initState() {
     super.initState();
-
     WidgetsBinding.instance.addPostFrameCallback(
       (_) async {
         await cubit.getFor();
@@ -28,33 +29,24 @@ class _BottomNavBarHomePageState extends State<BottomNavBarHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    int _selectedIndex = 0;
     const TextStyle optionStyle = TextStyle(
         fontSize: 30, fontWeight: FontWeight.bold, color: Colors.black);
-    List<Widget> _widgetOptions = <Widget>[
-      Text(
-        'Index 1: Business',
-        style: optionStyle,
-      ),
-    ];
 
     void _onItemTapped(int index) {
       setState(() {
-        _selectedIndex = index;
+        selectedIndex = index;
+        log("current index is $selectedIndex");
       });
     }
 
+    List<Widget> body = const [
+      CreateProductForm(),
+      ProductsList(),
+    ];
     return Scaffold(
-      body: BlocBuilder<ProductsCubit, ProductsState>(
-        bloc: cubit,
-        builder: (context, state) {
-          return state.maybeWhen(
-            loadUiForm: (list) => CreateProductForm(parsedWidgets: list),
-            orElse: () {
-              return Container();
-            },
-          );
-        },
+      body: BlocProvider.value(
+        value: cubit,
+        child: body[selectedIndex],
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
@@ -64,11 +56,11 @@ class _BottomNavBarHomePageState extends State<BottomNavBarHomePage> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.business),
-            label: 'Business',
+            label: 'Products',
           ),
         ],
-        currentIndex: _selectedIndex,
-        selectedItemColor: Colors.amber[800],
+        currentIndex: selectedIndex,
+        selectedItemColor: Theme.of(context).primaryColor,
         onTap: _onItemTapped,
       ),
     );

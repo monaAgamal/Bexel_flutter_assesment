@@ -1,3 +1,4 @@
+import 'package:bexel_assesment/features/home/domain/entities/product.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -9,4 +10,11 @@ abstract class ProductsState with _$ProductsState {
 
   const factory ProductsState.loadUiForm({required List<Widget> uIForm}) =
       LoadUiForm;
+
+  const factory ProductsState.loading() = Loading;
+
+  const factory ProductsState.fetchProducts({
+    required List<Product> products,
+  }) = FetchProducts;
+
 }

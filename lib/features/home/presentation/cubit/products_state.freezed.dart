@@ -20,18 +20,24 @@ mixin _$ProductsState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function(List<Widget> uIForm) loadUiForm,
+    required TResult Function() loading,
+    required TResult Function(List<Product> products) fetchProducts,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(List<Widget> uIForm)? loadUiForm,
+    TResult Function()? loading,
+    TResult Function(List<Product> products)? fetchProducts,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(List<Widget> uIForm)? loadUiForm,
+    TResult Function()? loading,
+    TResult Function(List<Product> products)? fetchProducts,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -39,18 +45,24 @@ mixin _$ProductsState {
   TResult map<TResult extends Object?>({
     required TResult Function(Initial value) initial,
     required TResult Function(LoadUiForm value) loadUiForm,
+    required TResult Function(Loading value) loading,
+    required TResult Function(FetchProducts value) fetchProducts,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Initial value)? initial,
     TResult Function(LoadUiForm value)? loadUiForm,
+    TResult Function(Loading value)? loading,
+    TResult Function(FetchProducts value)? fetchProducts,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initial value)? initial,
     TResult Function(LoadUiForm value)? loadUiForm,
+    TResult Function(Loading value)? loading,
+    TResult Function(FetchProducts value)? fetchProducts,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -113,6 +125,8 @@ class _$Initial implements Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function(List<Widget> uIForm) loadUiForm,
+    required TResult Function() loading,
+    required TResult Function(List<Product> products) fetchProducts,
   }) {
     return initial();
   }
@@ -122,6 +136,8 @@ class _$Initial implements Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(List<Widget> uIForm)? loadUiForm,
+    TResult Function()? loading,
+    TResult Function(List<Product> products)? fetchProducts,
   }) {
     return initial?.call();
   }
@@ -131,6 +147,8 @@ class _$Initial implements Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(List<Widget> uIForm)? loadUiForm,
+    TResult Function()? loading,
+    TResult Function(List<Product> products)? fetchProducts,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -144,6 +162,8 @@ class _$Initial implements Initial {
   TResult map<TResult extends Object?>({
     required TResult Function(Initial value) initial,
     required TResult Function(LoadUiForm value) loadUiForm,
+    required TResult Function(Loading value) loading,
+    required TResult Function(FetchProducts value) fetchProducts,
   }) {
     return initial(this);
   }
@@ -153,6 +173,8 @@ class _$Initial implements Initial {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Initial value)? initial,
     TResult Function(LoadUiForm value)? loadUiForm,
+    TResult Function(Loading value)? loading,
+    TResult Function(FetchProducts value)? fetchProducts,
   }) {
     return initial?.call(this);
   }
@@ -162,6 +184,8 @@ class _$Initial implements Initial {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initial value)? initial,
     TResult Function(LoadUiForm value)? loadUiForm,
+    TResult Function(Loading value)? loading,
+    TResult Function(FetchProducts value)? fetchProducts,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -245,6 +269,8 @@ class _$LoadUiForm implements LoadUiForm {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function(List<Widget> uIForm) loadUiForm,
+    required TResult Function() loading,
+    required TResult Function(List<Product> products) fetchProducts,
   }) {
     return loadUiForm(uIForm);
   }
@@ -254,6 +280,8 @@ class _$LoadUiForm implements LoadUiForm {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(List<Widget> uIForm)? loadUiForm,
+    TResult Function()? loading,
+    TResult Function(List<Product> products)? fetchProducts,
   }) {
     return loadUiForm?.call(uIForm);
   }
@@ -263,6 +291,8 @@ class _$LoadUiForm implements LoadUiForm {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(List<Widget> uIForm)? loadUiForm,
+    TResult Function()? loading,
+    TResult Function(List<Product> products)? fetchProducts,
     required TResult orElse(),
   }) {
     if (loadUiForm != null) {
@@ -276,6 +306,8 @@ class _$LoadUiForm implements LoadUiForm {
   TResult map<TResult extends Object?>({
     required TResult Function(Initial value) initial,
     required TResult Function(LoadUiForm value) loadUiForm,
+    required TResult Function(Loading value) loading,
+    required TResult Function(FetchProducts value) fetchProducts,
   }) {
     return loadUiForm(this);
   }
@@ -285,6 +317,8 @@ class _$LoadUiForm implements LoadUiForm {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Initial value)? initial,
     TResult Function(LoadUiForm value)? loadUiForm,
+    TResult Function(Loading value)? loading,
+    TResult Function(FetchProducts value)? fetchProducts,
   }) {
     return loadUiForm?.call(this);
   }
@@ -294,6 +328,8 @@ class _$LoadUiForm implements LoadUiForm {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initial value)? initial,
     TResult Function(LoadUiForm value)? loadUiForm,
+    TResult Function(Loading value)? loading,
+    TResult Function(FetchProducts value)? fetchProducts,
     required TResult orElse(),
   }) {
     if (loadUiForm != null) {
@@ -309,5 +345,271 @@ abstract class LoadUiForm implements ProductsState {
   List<Widget> get uIForm => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$$LoadUiFormCopyWith<_$LoadUiForm> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$LoadingCopyWith<$Res> {
+  factory _$$LoadingCopyWith(_$Loading value, $Res Function(_$Loading) then) =
+      __$$LoadingCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$LoadingCopyWithImpl<$Res> extends _$ProductsStateCopyWithImpl<$Res>
+    implements _$$LoadingCopyWith<$Res> {
+  __$$LoadingCopyWithImpl(_$Loading _value, $Res Function(_$Loading) _then)
+      : super(_value, (v) => _then(v as _$Loading));
+
+  @override
+  _$Loading get _value => super._value as _$Loading;
+}
+
+/// @nodoc
+
+class _$Loading implements Loading {
+  const _$Loading();
+
+  @override
+  String toString() {
+    return 'ProductsState.loading()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$Loading);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(List<Widget> uIForm) loadUiForm,
+    required TResult Function() loading,
+    required TResult Function(List<Product> products) fetchProducts,
+  }) {
+    return loading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(List<Widget> uIForm)? loadUiForm,
+    TResult Function()? loading,
+    TResult Function(List<Product> products)? fetchProducts,
+  }) {
+    return loading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(List<Widget> uIForm)? loadUiForm,
+    TResult Function()? loading,
+    TResult Function(List<Product> products)? fetchProducts,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(LoadUiForm value) loadUiForm,
+    required TResult Function(Loading value) loading,
+    required TResult Function(FetchProducts value) fetchProducts,
+  }) {
+    return loading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(LoadUiForm value)? loadUiForm,
+    TResult Function(Loading value)? loading,
+    TResult Function(FetchProducts value)? fetchProducts,
+  }) {
+    return loading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(LoadUiForm value)? loadUiForm,
+    TResult Function(Loading value)? loading,
+    TResult Function(FetchProducts value)? fetchProducts,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class Loading implements ProductsState {
+  const factory Loading() = _$Loading;
+}
+
+/// @nodoc
+abstract class _$$FetchProductsCopyWith<$Res> {
+  factory _$$FetchProductsCopyWith(
+          _$FetchProducts value, $Res Function(_$FetchProducts) then) =
+      __$$FetchProductsCopyWithImpl<$Res>;
+  $Res call({List<Product> products});
+}
+
+/// @nodoc
+class __$$FetchProductsCopyWithImpl<$Res>
+    extends _$ProductsStateCopyWithImpl<$Res>
+    implements _$$FetchProductsCopyWith<$Res> {
+  __$$FetchProductsCopyWithImpl(
+      _$FetchProducts _value, $Res Function(_$FetchProducts) _then)
+      : super(_value, (v) => _then(v as _$FetchProducts));
+
+  @override
+  _$FetchProducts get _value => super._value as _$FetchProducts;
+
+  @override
+  $Res call({
+    Object? products = freezed,
+  }) {
+    return _then(_$FetchProducts(
+      products: products == freezed
+          ? _value._products
+          : products // ignore: cast_nullable_to_non_nullable
+              as List<Product>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$FetchProducts implements FetchProducts {
+  const _$FetchProducts({required final List<Product> products})
+      : _products = products;
+
+  final List<Product> _products;
+  @override
+  List<Product> get products {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_products);
+  }
+
+  @override
+  String toString() {
+    return 'ProductsState.fetchProducts(products: $products)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$FetchProducts &&
+            const DeepCollectionEquality().equals(other._products, _products));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_products));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$FetchProductsCopyWith<_$FetchProducts> get copyWith =>
+      __$$FetchProductsCopyWithImpl<_$FetchProducts>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(List<Widget> uIForm) loadUiForm,
+    required TResult Function() loading,
+    required TResult Function(List<Product> products) fetchProducts,
+  }) {
+    return fetchProducts(products);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(List<Widget> uIForm)? loadUiForm,
+    TResult Function()? loading,
+    TResult Function(List<Product> products)? fetchProducts,
+  }) {
+    return fetchProducts?.call(products);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(List<Widget> uIForm)? loadUiForm,
+    TResult Function()? loading,
+    TResult Function(List<Product> products)? fetchProducts,
+    required TResult orElse(),
+  }) {
+    if (fetchProducts != null) {
+      return fetchProducts(products);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(LoadUiForm value) loadUiForm,
+    required TResult Function(Loading value) loading,
+    required TResult Function(FetchProducts value) fetchProducts,
+  }) {
+    return fetchProducts(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(LoadUiForm value)? loadUiForm,
+    TResult Function(Loading value)? loading,
+    TResult Function(FetchProducts value)? fetchProducts,
+  }) {
+    return fetchProducts?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(LoadUiForm value)? loadUiForm,
+    TResult Function(Loading value)? loading,
+    TResult Function(FetchProducts value)? fetchProducts,
+    required TResult orElse(),
+  }) {
+    if (fetchProducts != null) {
+      return fetchProducts(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class FetchProducts implements ProductsState {
+  const factory FetchProducts({required final List<Product> products}) =
+      _$FetchProducts;
+
+  List<Product> get products => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$$FetchProductsCopyWith<_$FetchProducts> get copyWith =>
       throw _privateConstructorUsedError;
 }
