@@ -1,0 +1,100 @@
+[
+    {
+        "type": "text",
+        "name": "name",
+        "label": "Product name",
+        "validation" :{
+            "required": true,
+            "accept": "only alphabetic"
+        }
+    },
+    {
+        "type": "textarea",
+        "name": "details",
+        "label": "Product Details",
+        "validation" :{
+            "required": false,
+            "maxlength": 200
+        }
+    },
+    {
+        "type": "select",
+        "name": "quantity",
+        "label": "Quantity",
+        "multiple": false,
+        "values": [
+            {
+                "label": "10",
+                "value": "10"
+            },
+            {
+                "label": "20",
+                "value": "20"
+            },
+            {
+                "label": "30",
+                "value": "30"
+            }
+        ],
+        "validation" :{
+            "required": true
+        }
+    },
+    {
+        "type": "radio-group",
+        "name": "active",
+        "label": "Is active?",
+        "values": [
+            {
+                "label": "Yes",
+                "value": "Yes",
+                "selected": false
+            },
+            {
+                "label": "No",
+                "value": "No"
+            }
+        ],
+        "validation" :{
+            "required": true
+        }
+    },
+    {
+        "type": "date",
+        "label": "Expire Date",
+        "validation" :{
+            "required": false,
+            "dateFormat": "yy/dd/mm"
+        }
+    },
+    {
+        "type": "checkbox-group",
+        "name": "availability",
+        "label": "Product Availability",
+        "values": [
+            {
+                "label": "Cairo",
+                "value": "Cairo",
+                "selected": true
+            },
+            {
+                "label": "Alex",
+                "value": "Alex",
+                "selected": true
+            }
+        ],
+        "validation" :{
+            "required": true
+        }
+    },
+    {
+        "type": "file",
+        "name": "image",
+        "label": "Product Image",
+        "className": "form-control",
+        "validation" :{
+            "required": true,
+            "accept": "PDF,PNG"
+        }
+    }
+]

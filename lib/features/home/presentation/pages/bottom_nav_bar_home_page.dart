@@ -1,4 +1,9 @@
+import 'package:bexel_assesment/di/injection_container.dart';
+import 'package:bexel_assesment/features/home/presentation/cubit/products_cubit.dart';
+import 'package:bexel_assesment/features/home/presentation/cubit/products_state.dart';
+import 'package:bexel_assesment/features/home/presentation/widgets/create_product.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class BottomNavBarHomePage extends StatefulWidget {
   const BottomNavBarHomePage({Key? key}) : super(key: key);
@@ -8,16 +13,25 @@ class BottomNavBarHomePage extends StatefulWidget {
 }
 
 class _BottomNavBarHomePageState extends State<BottomNavBarHomePage> {
+  final cubit = getIt<ProductsCubit>();
+
+  @override
+  void initState() {
+    super.initState();
+
+    WidgetsBinding.instance.addPostFrameCallback(
+      (_) async {
+        await cubit.getFor();
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     int _selectedIndex = 0;
-    const TextStyle optionStyle =
-        TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-    const List<Widget> _widgetOptions = <Widget>[
-      Text(
-        'Index 0: Home',
-        style: optionStyle,
-      ),
+    const TextStyle optionStyle = TextStyle(
+        fontSize: 30, fontWeight: FontWeight.bold, color: Colors.black);
+    List<Widget> _widgetOptions = <Widget>[
       Text(
         'Index 1: Business',
         style: optionStyle,
@@ -31,6 +45,17 @@ class _BottomNavBarHomePageState extends State<BottomNavBarHomePage> {
     }
 
     return Scaffold(
+      body: BlocBuilder<ProductsCubit, ProductsState>(
+        bloc: cubit,
+        builder: (context, state) {
+          return state.maybeWhen(
+            loadUiForm: (list) => CreateProductForm(parsedWidgets: list),
+            orElse: () {
+              return Container();
+            },
+          );
+        },
+      ),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(

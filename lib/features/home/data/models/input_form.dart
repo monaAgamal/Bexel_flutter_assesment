@@ -20,7 +20,7 @@ class InputFormField {
     required this.label,
     required this.validation,
     required this.multiple,
-    required this.values,
+    required this.modelValues,
     required this.className,
   });
 
@@ -29,7 +29,7 @@ class InputFormField {
   String label;
   Validation validation;
   bool? multiple;
-  List<Value>? values;
+  List<Value>? modelValues;
   String? className;
 
   factory InputFormField.fromRawJson(String str) =>
@@ -43,7 +43,7 @@ class InputFormField {
         label: json["label"],
         validation: Validation.fromJson(json["validation"]),
         multiple: json["multiple"],
-        values: json["values"] == null
+        modelValues: json["values"] == null
             ? null
             : List<Value>.from(json["values"].map((x) => Value.fromJson(x))),
         className: json["className"],
@@ -55,9 +55,9 @@ class InputFormField {
         "label": label,
         "validation": validation.toJson(),
         "multiple": multiple,
-        "values": values == null
+        "values": modelValues == null
             ? null
-            : List<dynamic>.from(values!.map((x) => x.toJson())),
+            : List<dynamic>.from(modelValues!.map((x) => x.toJson())),
         "className": className,
       };
 }
@@ -102,9 +102,9 @@ class Value {
     required this.selected,
   });
 
-  String label;
-  String value;
-  bool selected;
+  String? label;
+  String? value;
+  bool? selected;
 
   factory Value.fromRawJson(String str) => Value.fromJson(json.decode(str));
 

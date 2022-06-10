@@ -49,7 +49,7 @@ class Products extends _Products with RealmEntity, RealmObject {
   static SchemaObject? _schema;
   static SchemaObject _initSchema() {
     RealmObject.registerFactory(Products._);
-    return const SchemaObject(Products, 'Products', [
+    return const SchemaObject(Products, [
       SchemaProperty('make', RealmPropertyType.string),
       SchemaProperty('model', RealmPropertyType.string),
       SchemaProperty('kilometers', RealmPropertyType.int, optional: true),

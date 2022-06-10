@@ -8,23 +8,35 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  cupertino_icons: ^1.0.2
+  cupertino_icons: ^1.0.5
   hexcolor: ^2.0.7
   flutter_svg: ^1.1.0
   flutter_native_splash: ^2.2.3
   equatable: ^2.0.3
-  realm: ^0.3.1+beta
+  realm: ^0.2.1+alpha
+  injectable: ^1.5.3
+  injectable_generator: ^1.5.3
+  flutter_bloc: ^8.0.1
+  freezed: ^2.0.0
+  freezed_annotation: ^2.0.3
+  file_picker: ^4.6.1
+  get_it: ^7.2.0
 
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^2.0.0
+  build_runner: ^2.1.11
+
+builders:
+  json_widget: any
 
 flutter:
   uses-material-design: true
   assets:
     - assets/svg/
+    - assets/product_form_inputs.json
   fonts:
     - family: Roboto
       fonts:
