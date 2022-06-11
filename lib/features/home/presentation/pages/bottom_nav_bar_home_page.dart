@@ -36,6 +36,7 @@ class _BottomNavBarHomePageState extends State<BottomNavBarHomePage> {
       setState(() {
         selectedIndex = index;
         log("current index is $selectedIndex");
+        cubit.refreshForm();
       });
     }
 

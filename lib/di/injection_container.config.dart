@@ -34,7 +34,6 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
       () => _i8.LocalDataSourceImpl(get<_i3.DatabaseService>()));
   gh.singleton<_i9.ProductsRepository>(
       _i10.ProductsRepositoryImpl(localDataSource: get<_i7.LocalDataSource>()));
-  gh.lazySingleton<_Products>(() => _Products());
   gh.factory<_i11.GetInputFormUseCase>(() => _i11.GetInputFormUseCase(
       productsRepository: get<_i9.ProductsRepository>(),
       inputFieldToWidgetFactoryConverter:

@@ -2,7 +2,7 @@ import 'package:bexel_assesment/features/home/presentation/ui_models/selectable_
 import 'package:flutter/material.dart';
 
 class CustomDropDown extends StatefulWidget {
-  final List<DropdownMenuItem<SelectableQuantityValue>> selectableItems;
+  final List<SelectableQuantityValue> selectableItems;
 
   const CustomDropDown({
     super.key,
@@ -14,16 +14,27 @@ class CustomDropDown extends StatefulWidget {
 }
 
 class _CustomDropDownState extends State<CustomDropDown> {
-  SelectableQuantityValue? selectedValue;
+  int? selectedValue;
 
   @override
   Widget build(BuildContext context) {
-    return DropdownButton<SelectableQuantityValue>(
-      value: selectedValue,
-      items: widget.selectableItems,
-      onChanged: (currentValue) {
-        setState(() => selectedValue = currentValue);
-      },
+    return SizedBox(
+      width: double.infinity,
+      child: DropdownButton<int>(
+        hint: Text("Select"),
+        items: widget.selectableItems
+            .map((e) => DropdownMenuItem(
+                  child: Text(e.label),
+                  value: e.value,
+                ))
+            .toList(),
+        value: selectedValue,
+        onChanged: (currentValue) {
+          setState(
+            () => selectedValue = currentValue,
+          );
+        },
+      ),
     );
   }
 }

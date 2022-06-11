@@ -12,10 +12,14 @@ class ProductsCubit extends Cubit<ProductsState> {
   final GetInputFormUseCase useCase;
 
   ProductsCubit(this.useCase) : super(const ProductsState.initial());
+  List<Widget> _form = [];
+
+  // List<Widget> get form => _form;
 
   Future getFor() async {
     final List<Widget> result = await useCase(NoParams());
     log("widgets .....$result");
+    _form = result;
     emit(ProductsState.loadUiForm(uIForm: result));
   }
 
@@ -33,5 +37,9 @@ class ProductsCubit extends Cubit<ProductsState> {
       const Product(name: "Product-8", details: "details-8", imagePath: "//"),
     ];
     emit(ProductsState.fetchProducts(products: products));
+  }
+
+  refreshForm() {
+    emit(ProductsState.loadUiForm(uIForm: _form));
   }
 }

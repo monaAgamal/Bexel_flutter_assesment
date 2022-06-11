@@ -20,11 +20,9 @@ class CustomFormWidget extends StatelessWidget {
     return Column(
       mainAxisSize: MainAxisSize.min,
       mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(label),
-        const SizedBox(height: 12),
         widget,
-        const SizedBox(height: 12),
       ],
     );
   }

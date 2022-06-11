@@ -1,17 +1,22 @@
+import 'dart:developer';
+
+import 'package:bexel_assesment/core/app_theme/app_colors_palate.dart';
 import 'package:bexel_assesment/core/enums/form_widget_enum.dart';
 import 'package:bexel_assesment/features/home/domain/entities/input_form_field.dart';
 import 'package:bexel_assesment/features/home/presentation/input_field_to_widget_factory/input_field_to_widget_factory.dart';
+import 'package:bexel_assesment/features/home/presentation/ui_models/selectable_quantity_values.dart';
 import 'package:bexel_assesment/features/home/presentation/widgets/custom_form_widget.dart';
+import 'package:bexel_assesment/features/home/presentation/widgets/drop_down_widget.dart';
 import 'package:flutter/material.dart';
+
 // import 'package:flutter/src/widgets/framework.dart';
 import 'package:injectable/injectable.dart';
 
-@Singleton(as:InputFieldToWidgetFactory)
+@Singleton(as: InputFieldToWidgetFactory)
 class InputFieldToWidgetFactoryImpl implements InputFieldToWidgetFactory {
-
   @override
-  Widget inputToWidget( InputFormFieldEntity inputFormFieldEntity ) {
-    final String type = inputFormFieldEntity.type ;
+  Widget inputToWidget(InputFormFieldEntity inputFormFieldEntity) {
+    final String type = inputFormFieldEntity.type;
     if (type == FormWidgetEnum.file.name) {
       return Container();
     }
@@ -53,17 +58,28 @@ class InputFieldToWidgetFactoryImpl implements InputFieldToWidgetFactory {
       );
     }
     if (type == FormWidgetEnum.select.name) {
+      log("ccc" + inputFormFieldEntity.values!.toString());
       return CustomFormWidget(
-        widget: TextFormField(
-          validator: (input) {
-            if (input != null && input.length > 200) {
-              return "Can't exceed 200 Chars";
-            }
-            return null;
-          },
-          decoration: InputDecoration(
-            hintText: inputFormFieldEntity.name,
-          ),
+        widget: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+           const SizedBox(height: 16) ,
+            Text(
+              inputFormFieldEntity.name!,
+              style: const TextStyle(
+                color: Colors.grey,
+              ),
+            ),
+            const SizedBox(height: 6),
+            CustomDropDown(
+              selectableItems: inputFormFieldEntity.values!
+                  .map((e) => SelectableQuantityValue(
+                        label: e.label,
+                        value: int.tryParse(e.value!) ?? 1,
+                      ))
+                  .toList(),
+            ),
+          ],
         ),
         label: inputFormFieldEntity.label,
         validation: inputFormFieldEntity.validation,

@@ -2,7 +2,6 @@ import 'package:injectable/injectable.dart';
 import 'package:realm/realm.dart'; // import realm package
 part 'products.g.dart'; // declare a part file.
 
-@LazySingleton()
 @RealmModel() // define a data model class named `_Car`.
 class _Products {
   late String name;

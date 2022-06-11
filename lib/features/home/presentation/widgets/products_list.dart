@@ -27,7 +27,10 @@ class _ProductsListState extends State<ProductsList> {
             loading: () => const Center(
               child: CircularProgressIndicator(),
             ),
-            fetchProducts: (productsList) => ListView.builder(
+            fetchProducts: (productsList) => ListView.separated(
+              itemCount: productsList.length,
+              separatorBuilder: (context, index) =>
+                  Divider(color: Theme.of(context).primaryColor),
               itemBuilder: (context, index) => ProductListItem(
                 product: productsList[index],
               ),
