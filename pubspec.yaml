@@ -13,9 +13,9 @@ dependencies:
   flutter_svg: ^1.1.0
   flutter_native_splash: ^2.2.3
   equatable: ^2.0.3
-  realm: ^0.2.1+alpha
+  realm: any
   injectable: ^1.5.3
-  injectable_generator: ^1.5.3
+  injectable_generator: ^1.5.0
   flutter_bloc: ^8.0.1
   freezed: ^2.0.0
   freezed_annotation: ^2.0.3

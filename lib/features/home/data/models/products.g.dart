@@ -7,39 +7,32 @@ part of 'products.dart';
 // **************************************************************************
 
 class Products extends _Products with RealmEntity, RealmObject {
-  static var _defaultsSet = false;
-
   Products(
-    String make,
-    String model, {
-    int? kilometers = 500,
-  }) {
-    if (!_defaultsSet) {
-      _defaultsSet = RealmObject.setDefaults<Products>({
-        'kilometers': 500,
-      });
-    }
-    RealmObject.set(this, 'make', make);
-    RealmObject.set(this, 'model', model);
-    RealmObject.set(this, 'kilometers', kilometers);
+    String name,
+    String details,
+    String imagePath,
+  ) {
+    RealmObject.set(this, 'name', name);
+    RealmObject.set(this, 'details', details);
+    RealmObject.set(this, 'imagePath', imagePath);
   }
 
   Products._();
 
   @override
-  String get make => RealmObject.get<String>(this, 'make') as String;
+  String get name => RealmObject.get<String>(this, 'name') as String;
   @override
-  set make(String value) => RealmObject.set(this, 'make', value);
+  set name(String value) => RealmObject.set(this, 'name', value);
 
   @override
-  String get model => RealmObject.get<String>(this, 'model') as String;
+  String get details => RealmObject.get<String>(this, 'details') as String;
   @override
-  set model(String value) => RealmObject.set(this, 'model', value);
+  set details(String value) => RealmObject.set(this, 'details', value);
 
   @override
-  int? get kilometers => RealmObject.get<int>(this, 'kilometers') as int?;
+  String get imagePath => RealmObject.get<String>(this, 'imagePath') as String;
   @override
-  set kilometers(int? value) => RealmObject.set(this, 'kilometers', value);
+  set imagePath(String value) => RealmObject.set(this, 'imagePath', value);
 
   @override
   Stream<RealmObjectChanges<Products>> get changes =>
@@ -50,9 +43,9 @@ class Products extends _Products with RealmEntity, RealmObject {
   static SchemaObject _initSchema() {
     RealmObject.registerFactory(Products._);
     return const SchemaObject(Products, [
-      SchemaProperty('make', RealmPropertyType.string),
-      SchemaProperty('model', RealmPropertyType.string),
-      SchemaProperty('kilometers', RealmPropertyType.int, optional: true),
+      SchemaProperty('name', RealmPropertyType.string),
+      SchemaProperty('details', RealmPropertyType.string),
+      SchemaProperty('imagePath', RealmPropertyType.string),
     ]);
   }
 }
