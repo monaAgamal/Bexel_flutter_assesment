@@ -1,16 +1,22 @@
-# bexel_assesment
+# Bexel_assesment
+#### Feature summary :
+- Splash screen
+- Welcome page(Static)
+- Home page(statis) 
+- products page with bottom nav bar
+- Build the create form from input json file
+- Add static UI for list of products with delete&& edit action
 
-A new Flutter project.
+##### More about dynamic building from input json file&& CRUD operations
+- use factory pattern for dynamic building according to type
+- Add abstraction steps to complete CRUD
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Overview on architecture and state management
+- I have used layered clean architecture(data-domain-presentation)
+- I have used bloc as state management
+- All colors is collected in one file
+ 
+### APK and Demo Recorded Video
+- [APK](https://drive.google.com/file/d/1Qm289Hx1YNnniysWY4KKVclUWBPHpBrE/view?usp=sharing)
+ 
+#### Checkout dev to see code
